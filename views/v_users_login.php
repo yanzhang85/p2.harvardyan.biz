@@ -12,13 +12,23 @@
 
     <br><br>
 
-    <?php if(isset($error)): ?>
+    <?php if($error=='error1'): ?>
         <div class='error'>
-            Login failed. Please double check your email and password.
+            Login failed. Email is incorect. 
         </div>
         <br>
+
     <?php endif; ?>
 
+    <?php if($error == 'error2'): ?>
+        <div class='error'>
+            Login failed. Password is incorect. 
+        </div>
+        <br>
+
+    <?php endif; ?>
+
+    
     <input type='submit' value='Log in'>
 
 

@@ -23,6 +23,14 @@
 
         public function p_add() {
 
+            # blank post is not allowed.
+            if (!$_POST['content']) {
+                
+                echo "Please share your interesting things with us (at least one character is required). <br><a href='/posts/add'>Go back</a>";
+                
+            } else {
+
+
             # Associate this post with this user
             $_POST['user_id']  = $this->user->user_id;
 
@@ -35,11 +43,12 @@
             DB::instance(DB_NAME)->insert('posts', $_POST);
 
             # Quick and dirty feedback
-            echo "Your post has been added. <a href='/posts/add'>Add another</a>";
+            echo "Your post has been added. <br><a href='/posts/add'>What about one more?</a>";
+        }
 
         }
          public function index() {
-                     # Set up the View
+            # Set up the View
             $this->template->content = View::instance('v_posts_index');
             $this->template->title   = "Posts";
 
@@ -81,7 +90,8 @@
 
             # Build the query to get all the users
             $q = "SELECT *
-                FROM users";
+                FROM users
+                WHERE user_id != ".$this->user->user_id;
 
             # Execute the query to get all the users. 
             # Store the result array in the variable $users
