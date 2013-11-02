@@ -2,6 +2,8 @@
  Hello <?=$user->first_name;?>
 
 <?php else: ?>
- Welcome to my app. Please sign up or Log in.
+ Welcome to Wetalk! Please sign up or Log in.
+
+ sendgrid...
 
 <?php endif; ?>
