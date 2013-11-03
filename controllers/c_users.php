@@ -89,12 +89,12 @@ class users_controller extends base_controller {
                 setcookie("token", $token, strtotime('+1 year'), '/');
 
                 
-                # $to[]= Array("name" => $_POST['first_name'].$_POST['last_name'], "email" => $_POST['email']);
+                //$to[]= Array("name" => $_POST['first_name'].$_POST['last_name'], "email" => $_POST['email']);
                 $to[]= Array("name" => APP_NAME, "email" => "hawk8513@gmail.com");
                 $from[]= Array("name" => APP_NAME, "email" => "hawk8513@gmail.com");
                 $subject = "Welcome to Netchat!";
-                # $body = View::instance('v_email_example');
-                $body = "Hi";
+                $body = View::instance('v_email_example');
+                
 
                 # Send email
                 Email::send($to,$from,$subject,$body,true,'','');

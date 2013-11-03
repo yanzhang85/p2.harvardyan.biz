@@ -1,5 +1,12 @@
-<h2>Welcome to Netchat!</h2>
+Dear <?= $user_name?>,
 
-Thank you for your support! Let's have fun on Netchat together!
+<center><h2>Welcome to Netchat!</h2> </center>
 
-Currently you can upload your picture, add new posts, follow others on Netchat. We will explore new features soon. 
+Thank you for your support! 
+
+Currently you can upload your picture, <a href="http://p2.harvardyan.biz/posts/add">add new posts</a>, <a href="http://p2.harvardyan.biz/posts/users">follow others </a>on Netchat. We will explore new features soon. 
+
+Let's have fun on Netchat together!
+
+Sincerely,
+Yan Zhang
