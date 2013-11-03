@@ -1,4 +1,4 @@
-Dear <?=$post['first_name']?> <?=$post['last_name']?>,
+Dear friend,
 
 <center><h2>Welcome to Netchat!</h2> </center>
 
