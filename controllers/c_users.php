@@ -100,7 +100,7 @@ class users_controller extends base_controller {
                 Email::send($to,$from,$subject,$body,true,'','');
 
                 # Send them to the main page 
-                Router::redirect("/users/profile");
+                Router::redirect("/");
 
             }
         }

@@ -38,9 +38,9 @@ A email designated to receive messages from the server. Examples:
 
 # If your app is going to have outgoing emails, you should fill in your SMTP settings
 # For this you could use gmail SMTP or something like http://sendgrid.com/
-	define('SMTP_HOST', 'smtp.gmail.com');
-	define('SMTP_USERNAME', 'hawk8513@gmail.com');
-	define('SMTP_PASSWORD', '1985812zy');
+	//define('SMTP_HOST', 'smtp.gmail.com');
+	//define('SMTP_USERNAME', 'hawk8513@gmail.com');
+	//define('SMTP_PASSWORD', '1985812zy');
 
 # For extra security, you might want to set different salts than what the core uses
 	define('PASSWORD_SALT', 'safkjhfskfsafsl3254546546sfsdfsdgg43435452342343fd');
