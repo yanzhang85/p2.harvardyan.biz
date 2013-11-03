@@ -2,8 +2,6 @@
  Hello <?=$user->first_name;?>
 
 <?php else: ?>
- Welcome to Wetalk! Please sign up or Log in.
-
- sendgrid...
+ Welcome to Netchat! Please sign up or Log in.
 
 <?php endif; ?>

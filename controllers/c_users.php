@@ -14,38 +14,99 @@ class users_controller extends base_controller {
     }
 
     public function signup() {
-        # Set up the view
-    $this->template->content = View::instance('v_users_signup');
+            # Set up the view
+        $this->template->content = View::instance('v_users_signup');
+        $this->template->title = "Sign up";
 
 
-    # Render the view
-    echo $this->template;
-
+        # Render the view
+        if(!$_POST){
+            echo $this->template;
+            return;
+        }   
 
     }
 
        
-    public function p_signup() {
-        
-        # Dump out the results of POST to see what the form submitted
-        // print_r($_POST);
+    public function p_signup($error=NULL) {
 
-        # Insert this user into the database
-        
-        $_POST['created'] = Time::now();
-        $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
-        $_POST['token']  = $token = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
+        $this->template->content=View::instance('v_users_signup');
+        $this->template->title = "Sign Up";
+            
+        # initiate error to false
+        $error = false;
 
-        $user_id = DB::instance(DB_NAME)->insert('users', $_POST);
+        #  initiate error
+        $this->template->content->error = '';
 
-        # Store this token in a cookie using setcookie()
-        setcookie("token", $token, strtotime('+1 year'), '/index/index');
+        # check POST data for valid input
+        foreach($_POST as $field_name => $value){
+            # Escape HTML chars (XSS attacks)
+            $value = stripslashes(htmlspecialchars($value));
+            # if an field is blank, add a message to the error view variable
+            if (trim($value) == ""){
+                $error = true;
+                $this->template->content->error = '<p>All fields are required.</p>';
+                
+            }
+        }
+        if ($error) {
+            echo $this->template;
+        }
+        # check whether the email address already exists
+        else {
+            $_POST = DB::instance(DB_NAME) ->sanitize($_POST);
+            $exists = DB::instance(DB_NAME)->select_field("SELECT email FROM users WHERE email = '" . $_POST['email'] . "'");
 
-        # Send them to the main page 
-        Router::redirect("/");
+            if (isset($exists)) {
+                $error = true;
+                $this->template->content->error = '<p>This email is already registered. You could <a href="/users/login">login</a> instead.</p>';
+                echo $this->template;
+            }
+
+            # ensure password is typed correctly
+            else if ($_POST['password'] != $_POST['retype']) {
+                $error= true;
+                $this->template->content->error = '<p> Password fields don&apos;t match.</p>';
+                echo $this->template;
+
+            }
+            #unset the 'retype' field (no need any more)
+            else {
+                unset($_POST['retype']);
+                # Dump out the results of POST to see what the form submitted
+                // print_r($_POST);
+
+                # Insert this user into the database
+            
+                $_POST['created'] = Time::now();
+                $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+                $_POST['token']  = $token = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
+
+                $user_id = DB::instance(DB_NAME)->insert('users', $_POST);
+
+                # Store this token in a cookie using setcookie()
+                setcookie("token", $token, strtotime('+1 year'), '/');
+
+                
+                # $to[]= Array("name" => $_POST['first_name'].$_POST['last_name'], "email" => $_POST['email']);
+                $to[]= Array("name" => APP_NAME, "email" => "zyclerk85@gmail.com");
+                $from[]= Array("name" => APP_NAME, "email" => "zyclerk85@gmail.com");
+                $subject = "Welcome to Netchat!";
+                # $body = View::instance('v_email_example');
+                $body = "Hi";
+
+                # Send email
+                Email::send($to,$from,$subject,$body,true,'','');
+
+                # Send them to the main page 
+                Router::redirect("/");
+
+            }
+        }
     }
 
-
+                  
       
     public function p_login() {
 
