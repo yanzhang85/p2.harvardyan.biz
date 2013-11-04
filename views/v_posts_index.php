@@ -4,7 +4,7 @@
 
 	<article>
 		<!-- display this user's profile image -->
-	    <img class="profile-pic" src="/uploads/avatars/<?=$user->image?>" alt="<?=$post['first_name']?> <?=$post['last_name']?>">
+	    <img class="profile-pic" src="/uploads/avatars/<?=$post['image']?>" alt="<?=$post['first_name']?> <?=$post['last_name']?>">
 	    <!-- Print this user's name -->
 	    <div class="name"><?=$post['first_name']?> <?=$post['last_name']?> posted:</div>
 
