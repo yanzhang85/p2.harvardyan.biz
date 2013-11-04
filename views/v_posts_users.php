@@ -1,5 +1,8 @@
 <?php foreach($users as $user): ?>
 
+    <!-- display this user's profile image -->
+    <img src="/uploads/avatars/<?=$user['image']?>" alt="<?=$user['first_name']?> <?=$user['last_name']?>" height="100" width="100">
+
     <!-- Print this user's name -->
     <?=$user['first_name']?> <?=$user['last_name']?>
 

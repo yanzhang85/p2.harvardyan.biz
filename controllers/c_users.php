@@ -82,8 +82,19 @@ class users_controller extends base_controller {
                 $_POST['created'] = Time::now();
                 $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
                 $_POST['token']  = $token = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
+                $_POST['image']='placeholder.jpg';
 
                 $user_id = DB::instance(DB_NAME)->insert('users', $_POST);
+
+                # all users follow their own posts by default
+                $data = Array(
+                    "created" => Time::now(),
+                    "user_id" => $user_id,
+                    "user_id_followed" => $user_id
+                    );
+
+                # Do the insert
+                DB::instance(DB_NAME)->insert('users_users', $data);
 
                 # Store this token in a cookie using setcookie()
                 setcookie("token", $token, strtotime('+1 year'), '/');
@@ -100,7 +111,7 @@ class users_controller extends base_controller {
                 Email::send($to,$from,$subject,$body,true,'','');
 
                 # Send them to the main page 
-                Router::redirect("/");
+                Router::redirect("/users/profile");
 
             }
         }
@@ -219,18 +230,58 @@ class users_controller extends base_controller {
         Router::redirect("/");
     }
 
-    public function profile($user_name = NULL) {
-        if(!$this->user) {
+    public function profile($error = NULL) {
 
-            //Router::redirect('/');
-            die('Members only. <a href="/users/login">Login</a>');
+        # if user is blank, then they're not logged in - redirect to login
+        if (!$this->user) {
+            router::redirect('/users/login');
         }
 
-        #set up the view
+        # pass the profile view to the 'content' area of the master template
+        $this->template->content = View::instance('v_users_profile');
+    
+        # title for this page 
+        $this->template->title = $this->user->first_name . " " . $this->user->last_name;
 
-        $this->template->content = view::instance('v_users_profile');
-        $this->template->title = "Profile";
+        # pass errors, if any
+        $this->template->content->error = $error;
 
+        //render the view 
+        echo $this->template;
+    }
+
+    public function profile_update() {
+        # if user specified a new image file, upload it
+        if ($_FILES['avatar']['error'] == 0)
+        {
+            # upload an image
+            $image = Upload::upload($_FILES, "/uploads/avatars/", array("JPG", "JPEG", "jpg", "jpeg", "gif", "GIF", "png", "PNG"), $this->user->user_id);
+
+            if($image == 'Invalid file type.') {
+                # return an error
+                Router::redirect("/users/profile/error"); 
+            }
+            else {
+                # process the upload
+                $data = Array("image" => $image);
+                DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = ".$this->user->user_id);
+
+                # resize the image
+                $imgObj = new Image($_SERVER["DOCUMENT_ROOT"] . '/uploads/avatars/' . $image);
+                $imgObj->resize(50,50);
+                $imgObj->save_image($_SERVER["DOCUMENT_ROOT"] . '/uploads/avatars' . $image);
+
+            }
+        }
+        else
+        {
+            # return an error
+            Router::redirect("/users/profile/error");  
+        }
+
+        # Redirect back to the profile page
+        router::redirect('/users/profile'); 
+    }  
         /* more work
         $client_files_head = Array('/css/profile.css');
         $this->template->client_files_head = Utils::load_client_files();
@@ -240,18 +291,5 @@ class users_controller extends base_controller {
 
         */
 
-        #pass the data to the view
-
-        $this->template->content->user_name=$user_name;
-        # display the view
-        echo $this -> template;
-
-        //$view = View::instance('v_users_profile');
-
-        //$view-> user_name = $user_name;
-
-       // echo $view;
-                }
-    
-
+        
 } # end of the class

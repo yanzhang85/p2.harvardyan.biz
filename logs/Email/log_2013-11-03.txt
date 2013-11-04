@@ -1,0 +1,15 @@
+2013-11-03 13:59:20 - INFO --> -------------------------- 
+2013-11-03 13:59:20 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 13:59:21 - INFO --> From:  () 
+2013-11-03 13:59:21 - INFO --> To: aaaaa (aaaaa),  
+2013-11-03 13:59:21 - INFO --> CC:  
+2013-11-03 13:59:21 - INFO --> BCC:  
+2013-11-03 13:59:21 - INFO --> Subject: Welcome to Netchat! 
+2013-11-03 13:59:21 - INFO --> Body: Dear friend,
+
+<center><h2>Welcome to Netchat!</h2> </center>
+
+Thank you for your support! 
+<br><br>
+Currently you can <a href="http://p2.harvardyan.biz/users/profile">upload your picture, <a href="http://p2.harvardyan.biz/posts/add">add new posts</a>, <a href="http://p2.harvardyan.biz/posts/users">f 
+2013-11-03 13:59:21 - INFO --> FAILED TO SEND EMAIL 
