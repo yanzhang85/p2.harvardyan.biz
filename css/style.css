@@ -263,13 +263,14 @@ POSTS
         background: #fff;
         border: 1px dotted #cdcdcd;
         font-family: serif, Helvetica;
-        font-size: .8em;
+        font-size: 1.2em;
         padding: 1em;
 }
 
 .posts .time {
         background: none;
         border: none;
+        text-align: right;
 }
 
 /*--------------------------------------------------------------------
