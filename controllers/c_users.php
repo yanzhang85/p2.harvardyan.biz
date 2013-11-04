@@ -198,7 +198,7 @@ class users_controller extends base_controller {
 
         # Set up the view
         $this->template->content = View::instance("v_users_login");
-        $this->template->title = "Login";
+        $this->template->title = "Log in";
 
         # Pass data to the view
        

@@ -43,7 +43,7 @@
             DB::instance(DB_NAME)->insert('posts', $_POST);
 
             # Quick and dirty feedback
-            echo "Your post has been added. <br><a href='/posts/add'>What about one more?</a>";
+            echo "Your post has been added. <br><a href='/posts/add'>What about one more?</a> <br> <a href='/'>Back to main page</a>";
         }
 
         }
