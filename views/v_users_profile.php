@@ -5,12 +5,6 @@
 		Thank you for your support!
 	</p>
 	<h4> Your current image</h4>
-
-	<!-- display default profile image -->
-	<?php if ($user->image == 'placeholder.jpg'): ?>
-	<p>What about having more fun with a nice picture of your fine self?</p>
-	<?php endif; ?>
-
 	<!-- upload image -->
 	<form role="form" method='POST' enctype="multipart/form-data" action='/users/profile_update/'>
 		<img class="profile-pic" src="/uploads/avatars/<?= $user->image ?>" alt="<?=$user->first_name . ' ' . $user->last_name ?>">                 
