@@ -282,14 +282,6 @@ class users_controller extends base_controller {
         # Redirect back to the profile page
         router::redirect('/users/profile'); 
     }  
-        /* more work
-        $client_files_head = Array('/css/profile.css');
-        $this->template->client_files_head = Utils::load_client_files();
-
-        $client_files_body = Array('/css/master.css');
-        $this->template->client_files_body = Utils::load_client_files();
-
-        */
-
+        
         
 } # end of the class

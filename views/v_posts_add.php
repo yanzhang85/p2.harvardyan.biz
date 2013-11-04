@@ -1,5 +1,5 @@
 <section class="content">
-<h3> Add a post </h3>
+<h3> Add Posts </h3>
 <form class="new-post" method='POST' action='/posts/p_add'>
 	<textarea name='content' id='content' placeholder="Start typing..."></textarea>
     <br>

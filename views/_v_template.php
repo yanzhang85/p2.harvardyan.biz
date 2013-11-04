@@ -18,10 +18,11 @@
 		<ul>
 			<li><a href="/">Home</a></li>
 			<?php if($user): ?>
+				<li><a href='/users/profile'>Update profile</a></li>
 			    <li><a href='/posts/add'>Add posts</a></li>
 			    <li><a href='/posts/'>View posts</a></li>
-			    <li><a href='/posts/users'>Follow users</a></li>
-			    <li><a href='/users/logout'>Logout</a></li>
+			    <li><a href='/posts/users'>Follow others</a></li>
+			    <li><a href='/users/logout'>Log out</a></li>
 			<?php else: ?>
 			    <li><a href='/users/signup'>Sign up</a></li>
 			    <li><a href='/users/login'>Log in</a></li>

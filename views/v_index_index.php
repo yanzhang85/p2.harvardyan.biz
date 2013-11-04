@@ -17,7 +17,7 @@
 		    	<li>Uploade images</li>
 		    </ul>
 	
-		New Feature will come out soon! Let's have fun on Netchat together!
+		New Feature will come out soon! Let's have fun on Netchat!
 	</div>
 	
 </section>
