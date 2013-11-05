@@ -1,0 +1,75 @@
+2013-11-04 19:17:39 - INFO --> -------------------------- 
+2013-11-04 19:17:39 - INFO --> Controller/Method: users/p_signup 
+2013-11-04 19:17:39 - INFO --> From:  () 
+2013-11-04 19:17:39 - INFO --> To: yenclerk (z),  
+2013-11-04 19:17:39 - INFO --> CC:  
+2013-11-04 19:17:39 - INFO --> BCC:  
+2013-11-04 19:17:39 - INFO --> Subject: Welcome to Netchat! 
+2013-11-04 19:17:39 - INFO --> Body: Dear friend,
+
+<center><h2>Welcome to Netchat!</h2> </center>
+
+Thank you for your support! 
+<br><br>
+Currently you can <a href="http://p2.harvardyan.biz/users/profile">upload your picture</a>, <a href="http://p2.harvardyan.biz/posts/add">add new posts</a>, <a href="http://p2.harvardyan.biz/posts/user 
+2013-11-04 19:17:39 - INFO --> FAILED TO SEND EMAIL 
+2013-11-04 19:19:36 - INFO --> -------------------------- 
+2013-11-04 19:19:36 - INFO --> Controller/Method: users/p_signup 
+2013-11-04 19:19:36 - INFO --> From:  () 
+2013-11-04 19:19:36 - INFO --> To: yenclerk (rr),  
+2013-11-04 19:19:36 - INFO --> CC:  
+2013-11-04 19:19:36 - INFO --> BCC:  
+2013-11-04 19:19:36 - INFO --> Subject: Welcome to Netchat! 
+2013-11-04 19:19:36 - INFO --> Body: Dear friend,
+
+<center><h2>Welcome to Netchat!</h2> </center>
+
+Thank you for your support! 
+<br><br>
+Currently you can <a href="http://p2.harvardyan.biz/users/profile">upload your picture</a>, <a href="http://p2.harvardyan.biz/posts/add">add new posts</a>, <a href="http://p2.harvardyan.biz/posts/user 
+2013-11-04 19:19:36 - INFO --> FAILED TO SEND EMAIL 
+2013-11-04 19:21:23 - INFO --> -------------------------- 
+2013-11-04 19:21:23 - INFO --> Controller/Method: users/p_signup 
+2013-11-04 19:21:23 - INFO --> From:  () 
+2013-11-04 19:21:23 - INFO --> To: yenzhen (a),  
+2013-11-04 19:21:23 - INFO --> CC:  
+2013-11-04 19:21:23 - INFO --> BCC:  
+2013-11-04 19:21:23 - INFO --> Subject: Welcome to Netchat! 
+2013-11-04 19:21:23 - INFO --> Body: Dear friend,
+
+<center><h2>Welcome to Netchat!</h2> </center>
+
+Thank you for your support! 
+<br><br>
+Currently you can <a href="http://p2.harvardyan.biz/users/profile">upload your picture</a>, <a href="http://p2.harvardyan.biz/posts/add">add new posts</a>, <a href="http://p2.harvardyan.biz/posts/user 
+2013-11-04 19:21:23 - INFO --> FAILED TO SEND EMAIL 
+2013-11-04 19:36:35 - INFO --> -------------------------- 
+2013-11-04 19:36:35 - INFO --> Controller/Method: users/p_signup 
+2013-11-04 19:36:35 - INFO --> From:  () 
+2013-11-04 19:36:35 - INFO --> To: aa (),  
+2013-11-04 19:36:35 - INFO --> CC:  
+2013-11-04 19:36:35 - INFO --> BCC:  
+2013-11-04 19:36:35 - INFO --> Subject: Welcome to Netchat! 
+2013-11-04 19:36:35 - INFO --> Body: Dear friend,
+
+<center><h2>Welcome to Netchat!</h2> </center>
+
+Thank you for your support! 
+<br><br>
+Currently you can <a href="http://p2.harvardyan.biz/users/profile">upload your picture</a>, <a href="http://p2.harvardyan.biz/posts/add">add new posts</a>, <a href="http://p2.harvardyan.biz/posts/user 
+2013-11-04 19:36:35 - INFO --> FAILED TO SEND EMAIL 
+2013-11-04 19:39:09 - INFO --> -------------------------- 
+2013-11-04 19:39:09 - INFO --> Controller/Method: users/p_signup 
+2013-11-04 19:39:09 - INFO --> From:  () 
+2013-11-04 19:39:09 - INFO --> To: aa (ab@yahoo.com),  
+2013-11-04 19:39:09 - INFO --> CC:  
+2013-11-04 19:39:09 - INFO --> BCC:  
+2013-11-04 19:39:09 - INFO --> Subject: Welcome to Netchat! 
+2013-11-04 19:39:09 - INFO --> Body: Dear friend,
+
+<center><h2>Welcome to Netchat!</h2> </center>
+
+Thank you for your support! 
+<br><br>
+Currently you can <a href="http://p2.harvardyan.biz/users/profile">upload your picture</a>, <a href="http://p2.harvardyan.biz/posts/add">add new posts</a>, <a href="http://p2.harvardyan.biz/posts/user 
+2013-11-04 19:39:11 - INFO --> FAILED TO SEND EMAIL 

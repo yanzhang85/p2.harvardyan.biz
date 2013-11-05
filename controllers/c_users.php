@@ -47,14 +47,19 @@ class users_controller extends base_controller {
             if (trim($value) == ""){
                 $error = true;
                 $this->template->content->error = '<p>All fields are required.</p>';
-                
             }
         }
         if ($error) {
             echo $this->template;
         }
-        # check whether the email address already exists
-        else {
+        # email address format validation
+        else if (!(preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/',$_POST['email']))) {
+            $error = true;
+            $this->template->content->error = '<p>Please input a valid email addreess.</p>';
+            echo $this->template;
+        }
+       # check whether the email address already exists
+        else {   
             $_POST = DB::instance(DB_NAME) ->sanitize($_POST);
             $exists = DB::instance(DB_NAME)->select_field("SELECT email FROM users WHERE email = '" . $_POST['email'] . "'");
 
@@ -78,7 +83,7 @@ class users_controller extends base_controller {
                 // print_r($_POST);
 
                 # Insert this user into the database
-            
+                
                 $_POST['created'] = Time::now();
                 $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
                 $_POST['token']  = $token = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
@@ -99,23 +104,23 @@ class users_controller extends base_controller {
                 # Store this token in a cookie using setcookie()
                 setcookie("token", $token, strtotime('+1 year'), '/');
 
-                
+                    
                 $to[]= Array("name" => $_POST['first_name'].$_POST['last_name'], "email" => $_POST['email']);
                 //$to[]= Array("name" => APP_NAME, "email" => "hawk8513@gmail.com");
                 $from[]= Array("name" => APP_NAME, "email" => APP_EMAIL);
                 $subject = "Welcome to Netchat!";
                 $body = View::instance('v_email_example');
-                
+                    
 
                 # Send email
                 Email::send($to,$from,$subject,$body,true,'','');
 
                 # Send them to the main page 
                 Router::redirect("/users/profile");
-
             }
         }
     }
+
 
                   
       
